@@ -16,7 +16,21 @@
 <script>
   var map = L.map("map").setView([35.69, 139.7], 15);
   L.esri.basemapLayer("Topographic").addTo(map);
-  L.marker([35.69, 139.7]).addTo(map);
+  fetch("https://sc-line-227913.appspot.com/getmap")
+  .then(function(response){
+    return response.json()
+  })
+  .then(function(json){
+        for (i in json.point){
+            L.marker([json.point[i].x,json.point[i].y]).addTo(map).bindTooltip("my tooltip text").openTooltip();
+            L.circle([json.point[i].x,json.point[i].y], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(map);
+        }
+  });
 </script>
 </body>
 </html>
