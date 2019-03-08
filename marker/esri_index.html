@@ -14,7 +14,7 @@
 <body>
 <div id="map"></div>
 <script>
-  var map = L.map("map").setView([35.69, 139.7], 15);
+  var map = L.map("map").setView([35.69, 139.7], 11);
   L.esri.basemapLayer("Topographic").addTo(map);
   fetch("https://sc-line-227913.appspot.com/getmap")
   .then(function(response){
@@ -27,7 +27,7 @@
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.5,
-                radius: 500
+                radius: Math.floor( Math.random () * 1000)
             }).addTo(map);
         }
   });
