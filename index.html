@@ -16,7 +16,7 @@
 <script>
   var map = L.map("map").setView([35.69, 139.7], 11);
   L.esri.basemapLayer("Topographic").addTo(map);
-  fetch("https://sc-line-227913.appspot.com/getmap")
+  fetch("https://tanji.us-south.cf.appdomain.cloud/geo")
   .then(function(response){
     return response.json()
   })
